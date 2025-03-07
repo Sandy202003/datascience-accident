@@ -1,0 +1,5 @@
+# Predict accident severity
+predicted_severity = model.predict(new_data)
+
+# Display the prediction
+print(f"Predicted Accident Severity: {predicted_severity[0]}")
