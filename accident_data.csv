@@ -1,0 +1,12 @@
+Weather_Conditions,Road_Type,Speed_Limit(mph),Time_of_Day,Vehicle_Type,Driver_Age,"Alcohol_Involvement
+(0=No,1=Yes)","Accident_Severity(0=no_injury,1=minor_injury,2=major_injury,3=fatal)"
+Clear,Highway,70,Night,Car,35,1,3
+Rain,Urban,50,Evening,Truck,45,0,2
+Fog,Rural,30,Morning,Motorcycle,25,1,3
+Clear,Highway,70,Afternoon,Car,30,0,1
+Snow,Urban,40,Night,Truck,50,1,3
+Rain,Rural,30,Evening,Motorcycle,20,0,2
+Clear,Highway,70,Morning,Car,40,0,1
+Fog,Urban,50,Night,Truck,35,1,3
+Rain,Rural,30,Afternoon,Motorcycle,22,0,1
+Clear,Highway,70,Evening,Car,28,1,2
