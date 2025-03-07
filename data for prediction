@@ -1,0 +1,12 @@
+import pandas as pd
+
+# Hypothetical input data
+new_data = pd.DataFrame({
+    'Weather_Conditions': ['Rain'],
+    'Road_Type': ['Highway'],
+    'Speed_Limit(mph)': [70],
+    'Time_of_Day': ['Night'],
+    'Vehicle_Type': ['Car'],
+    'Driver_Age': [35],
+    'Alcohol_Involvement\n(0=No,1=Yes)': [1]
+})
