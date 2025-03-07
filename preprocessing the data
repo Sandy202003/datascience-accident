@@ -1,0 +1,38 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+import joblib  # For saving the model
+
+# Load the dataset
+data = pd.read_csv('/kaggle/input/accident/accident_data.csv')
+
+# Define features (X) and target (y)
+X = data[['Weather_Conditions', 'Road_Type', 'Speed_Limit(mssph)', 'Time_of_Day', 'Vehicle_Type', 'Driver_Age', 'Alcohol_Involvement\n(0=No,1=Yes)']]
+y = data['Accident_Severity(0=no_injury,1=minor_injury,2=major_injury,3=fatal)']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Preprocessing: One-hot encode categorical variables
+categorical_features = ['Weather_Conditions', 'Road_Type', 'Time_of_Day', 'Vehicle_Type']
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('cat', OneHotEncoder(), categorical_features)
+    ],
+    remainder='passthrough'  # Keep numerical features as they are
+)
+
+# Create a pipeline with preprocessing and linear regression
+model = Pipeline(steps=[
+    ('preprocessor', preprocessor),
+    ('regressor', LinearRegression())
+])
+
+# Train the model
+model.fit(X_train, y_train)
+
+# Save the model for future use
+joblib.dump(model, 'accident_severity_model.pkl')
