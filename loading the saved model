@@ -1,0 +1,4 @@
+import joblib
+
+# Load the saved model
+model = joblib.load('accident_severity_model.pkl')
